@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            html,body{
+                background: black;
+                height: 100%;
+                margin:0;
+                padding:0;
+                position: relative;
+            }
+            #camera{
+                width: 200px;
+                height: 100px;
+                background: black;
+                border: 1px solid white;
+                
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin:-50px 0 0 -100px;
+             }
+        </style>
+        <script type="text/javascript">
+            function init(){
+                var cameraView=document.getElementById("camera");
+                var topOffset=0;
+                setInterval(function(){
+                    topOffset+=1;
+                    if(topOffset>100)topOffset=-39;
+                    cameraView.style.setProperty("background-image",
+                    "-webkit-linear-gradient(top,transparent "+topOffset+"px,rgba(0,255,0,0.3) "+(40+topOffset)+"px,green "+(42+topOffset)+"px,transparent "+(43+topOffset)+"px)",null);
+                    cameraView.style.setProperty("background-image",
+                    "-moz-linear-gradient(top,transparent "+topOffset+"px,rgba(0,255,0,0.3) "+(40+topOffset)+"px,green "+(42+topOffset)+"px,transparent "+(43+topOffset)+"px)",null);
+                },15);
+            }
+        </script>
+    </head>
+    <body onload="init();">
+        <div id="camera"></div>
+    </body>
+</html>
