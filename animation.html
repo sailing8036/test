@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS3</title>	
+		
+		<style>	
+			.testFrames:hover{
+				-webkit-animation-name: changeColor, changePadding;
+				-webkit-animation-duration: 3s, 3s;
+				-webkit-animation-timing-function: cubic-bezier(0.5, -0.5, 0.5, 1.5);			
+				-webkit-animation-iteration-count: 2;
+				-webkit-animation-direction: alternate;
+			}
+			@-webkit-keyframes changePadding{
+				0%{
+					padding: 0 0;	
+				}				
+				100%{
+					padding: 0 250px;					
+				}
+			}	
+			@-webkit-keyframes changeColor{
+				0%{
+					background-color: red;
+				}
+				40%, 60% {
+					background-color: blue;
+				}				
+				100%{
+					background-color: green;
+				}
+			}			
+						
+			.showbox {
+				width:160px;
+			}
+			.otherClass .showbox{
+				width:90%;
+			}
+			#stable{
+				padding:.5em 0;margin-bottom:10px;border:1px solid #ccc;border-left:1em solid green;border-right:1em solid #006;
+				background:#eee;overflow:auto
+			}
+			#stable .showbox{
+				margin:10px 10px;border:2px solid;border-color:green;background:#cfc;line-height:30px;text-align:center;
+				-webkit-transition-duration:2s
+			}
+			#stable:hover .showbox{
+				width:500px;border-color:#006;background:red;border-radius:1.5em
+			}				
+		</style>
+		
+		<script type="text/javascript">
+			function toggleClass(){
+				var div = document.getElementById("stable");
+				if(div.className.indexOf("otherClass") >= 0){
+					div.className = "";
+				}else{
+					div.className = "otherClass";				
+				}
+				return false;
+			}
+		</script>						
+	</head>	
+	<body>	
+
+	<div class="testFrames" style="
+		background: red; text-align: center; line-height:50px;
+		width:100px;height:50px; margin:5px 0;">Hover Me</div>	
+
+	<a href="javascript:void(0)" onclick="toggleClass();" 
+			style="text-decoration:none;display:inline-block;margin:20px;">toggle class</a>
+				
+	<div id="stable" >
+	<div class="showbox" style="-webkit-transition-timing-function: ease;">ease &raquo;</div>
+	<div class="showbox" style="-webkit-transition-timing-function: ease-in-out;">ease-in-out &raquo;</div>
+	<div class="showbox" style="-webkit-transition-timing-function: ease-in;">ease-in &raquo;</div>
+	<div class="showbox" style="-webkit-transition-timing-function: ease-out;">ease-out &raquo;</div>
+	<div class="showbox" style="-webkit-transition-timing-function: linear;">linear &raquo;</div>
+	<div class="showbox" style="-webkit-transition-timing-function: cubic-bezier(0,1,1,0);">cubic-bezier &raquo;</div>
+	<div class="showbox" style="-webkit-transition-timing-function: step-start;">step-start &raquo;</div>
+	<div class="showbox" style="-webkit-transition-timing-function: step-end;">step-end &raquo;</div>
+	<div class="showbox" style="-webkit-transition-timing-function: steps(4, start);">steps(4, start) &raquo;</div>
+	<div class="showbox" style="-webkit-transition-timing-function: steps(4, end);">steps(4, end) &raquo;</div>
+	<div class="showbox" style="-webkit-transition-timing-function: cubic-bezier(0.5, -1, 0.5, 2);">bouncing &raquo;</div>
+	</div>
+							
+	</body>
+</html>
+
+
